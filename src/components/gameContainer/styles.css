@@ -1,0 +1,79 @@
+.choices__triangle {
+  display: grid;
+  grid-template-areas:
+      "paper scissors"
+      "rock rock";
+   justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 1rem 0;
+  grid-template-columns: 19rem 21rem;
+  grid-template-rows: 13rem 17rem;
+ }
+
+.triangle__container {
+  z-index: -1;
+  width: 100%;
+  position: absolute;
+}
+
+.triangle__img {
+     width: 35rem;
+  margin: 0 auto;
+}
+
+.choices__pentagon {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 1rem 0;
+  grid-row-gap: 1rem;
+  grid-template-columns: 10rem 11rem 10rem;
+  grid-template-rows: 1fr 1fr 1.5fr;
+  grid-template-areas:
+    "scissors scissors scissors "
+    "spock ..  paper"
+    "lizard  .. rock";
+}
+
+.pentago__container {
+  z-index: -1;
+  width: 100%;
+  position: absolute;
+}
+.pentagon__img {
+  text-align: center;
+  display: table;
+  width: 40rem;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 800px) {
+  .choices__pentagon {
+    grid-template-columns: 5rem 9rem 8rem;
+    grid-template-rows: 1fr 1fr 1.5fr;
+  }
+  .pentagon__img {
+    width: 30rem;
+  }
+
+  .choices__triangle {
+    grid-template-columns: 13rem 13rem;
+    grid-template-rows: 7rem 12rem;
+  }
+
+  .triangle__img {
+    width: 20rem;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .choices__pentagon {
+    grid-template-columns: 5rem 7rem 5rem;
+    grid-template-rows: 1fr 1fr 1.5fr;
+  }
+  .pentagon__img {
+    width: 24rem;
+  }
+}
