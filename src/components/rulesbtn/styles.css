@@ -1,0 +1,31 @@
+.rules-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 2rem;
+    margin-bottom: 2rem;
+    position: static;;
+    bottom: 0;
+  }
+
+  @media screen and (max-width:1000px){
+    .rules-container {
+  /*    margin-top: 2rem;*/
+      justify-content: center;
+      padding-right: 0rem;
+  }
+  }
+  @media screen and (max-width:600px){
+    .rules-container {
+      /*margin-top: 3rem;*/
+   }
+}
+
+@media screen and (min-width:1200px){
+  .rules-container {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+
+  }
+}
