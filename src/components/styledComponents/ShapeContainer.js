@@ -50,13 +50,16 @@ position: relative;
 ${( shape ) => handleShape(shape)};
 grid-area: ${props => props.shape}
 }
+
 &:hover{
   background: rgb(206, 201, 201);
 }
+
 .image {
     transform: scale(1);
     transform: ${props => props.gameOn || props.gameOn === undefined ? "scale(1)" : "scale(1.5)" };
 }
+
 .shadow {
     width: 10rem;
    height: 10rem;
@@ -70,14 +73,18 @@ grid-area: ${props => props.shape}
   @media (max-width:800px) {
     width: 6rem;
     height: 6rem; 
+
     .image {
       transform: scale(0.6);
   }
+
   .shadow {
   width: 2rem;
     height: 2rem;
   }
   
 }
+
   
+
 `
