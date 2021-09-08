@@ -13,10 +13,14 @@ z-index: 5;
 background-attachment: fixed;
 background-size: cover;
 position: fixed;
+
+
 .modal{
     text-align: center;
     width: 100%;
     padding: 0rem 0rem;
+
+
 }
 .modal-title  {
     color: hsl(229, 25%, 31%);
@@ -62,6 +66,8 @@ position: fixed;
   .close:hover path {
     fill: var(--darkBlue);
   }
+
+
 @media(min-width: 510px) {
       position: absolute;
       top: 0;
@@ -85,18 +91,22 @@ position: fixed;
         height: 350px;
         position: relative;
       }
+
       .modal-title {
         margin-top: 0.3rem;
         margin-left: 0.6rem;
         text-align: left;
         margin-bottom: 0rem;
       }
+
       .modal__image{
         width: 100%
       }
+
       .modal__image img {
         margin: 0rem auto;
          width: 90%
+
       }
     
       .close svg {
