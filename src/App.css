@@ -1,38 +1,223 @@
-.App {
-  text-align: center;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  font-family: "Barlow Semi Condensed", sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  background: radial-gradient(
+      circle at 50% 10%,
+      hsl(214, 47%, 23%),
+      hsl(237, 49%, 15%)
+    )
+    fixed;
+  color: aliceblue;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.playground {
+  height: 30rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.playground-normal {
+  width: 35rem;
+  background-image: url(./assets/images/bg-triangle.svg);
+}
+.playground-advanced {
+  width: 30rem;
+  background-image: url(./assets/images/bg-pentagon.svg);
+  position: relative;
+}
+.playground-advanced .scissors,
+.playground-advanced .paper,
+.playground-advanced .spock {
+  position: absolute;
+}
+.playground-advanced .scissors {
+  top: -3%;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* safari only browser */
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    /* to fix absolutely positioned element not centered in flex container, working fine in other broswers  */
+    .playground-advanced .scissors {
+      left: 30%;
+    }
+    /* to fix flexbox gap not suppored by safari */
+    .player-selection {
+      margin-right: 1rem;
+    }
+    .house-selection {
+      margin-left: 1rem;
+    }
   }
-  to {
-    transform: rotate(360deg);
+}
+
+.playground-advanced .paper {
+  top: 20%;
+  right: -3%;
+}
+.playground-advanced .spock {
+  top: 20%;
+  left: -3%;
+}
+
+.hand-selections {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;  /* gap with flex not yet supported by safari, workaround above */
+  max-width: 100%;
+}
+
+.outcome {
+  text-align: center;
+  align-self: center;
+}
+.outcome .btn {
+  color: hsl(237, 49%, 15%);
+  background-color: aliceblue;
+  padding: 0.6rem 2.2rem;
+  letter-spacing: 0.1rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.outcome .btn:hover {
+  color: hsl(349, 71%, 52%);
+}
+.outcome-heading {
+  text-transform: uppercase;
+  font-size: 3rem;
+  letter-spacing: 0.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.player-selection,
+.house-selection {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.player-selection .hand:hover,
+.house-selection .hand:hover {
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+  transition: none;
+}
+.player-selection h1,
+.house-selection h1 {
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-weight: 300;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.player-selection button,
+.house-selection button {
+  cursor: default;
+}
+
+.winner {
+  position: relative;
+}
+.winner ::after {
+  content: "";
+  position: absolute;
+  top: 12%;
+  left: 12%;
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 0 40px rgb(255 255 255 / 1%),
+    0 0 0 90px rgb(255 255 255 / 1%), 0 0 0 140px rgb(255 255 255 / 1%);
+  box-shadow: 0 0 0 40px rgb(255 255 255 / 1%), 0 0 0 90px rgb(255 255 255 / 1%),
+    0 0 0 140px rgb(255 255 255 / 1%);
+}
+
+@media (max-width: 753px) and (orientation: portrait) {
+  .outcome {
+    position: absolute;
+    bottom: 15%;
+  }
+}
+@media (max-width: 563px) and (orientation: portrait) {
+  .player-selection h1,
+  .house-selection h1 {
+    font-size: 1rem;
+  }
+  .playground-normal {
+    width: 24rem;
+    height: 27rem;
+  }
+  .playground-advanced {
+    width: 19rem;
+    height: 25rem;
+  }
+  .playground-advanced .spock {
+    left: -20%;
+  }
+  .playground-advanced .paper {
+    right: -20%;
+  }
+  .playground-advanced .lizard {
+    position: absolute;
+    left: -10%;
+    bottom: -5%;
+  }
+  .playground-advanced .rock {
+    position: absolute;
+    right: -10%;
+    bottom: -5%;
+  }
+  /* safari only browser to fix absolutely positioned element not centered in flex container, working fine in other broswers */
+  @media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) {
+      .playground-advanced .scissors {
+        left: 22%;
+      }
+    }
+  }
+  .hand-selections {
+    margin-top: 5rem;
+  }
+  .player-selection,
+  .house-selection {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .outcome {
+    position: absolute;
+    bottom: 20%;
+  }
+  .outcome-heading {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 380px) and (orientation: portrait) {
+  
+  .hand-selections {
+    margin-top: 0;
+    gap: 0;
+  }
+}
+@media (max-width: 320px) and (orientation: portrait) {
+  .outcome {
+    bottom: 10%;
   }
 }
