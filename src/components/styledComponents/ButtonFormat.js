@@ -14,6 +14,7 @@ font-weight: 700;
 cursor: pointer;
 z-index: 2;
 outline:none;
+
 &:hover {
     background-color: hsl(213, 29%, 41%);
   }
