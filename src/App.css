@@ -30,11 +30,11 @@ body {
 }
 .playground-normal {
   width: 35rem;
-  background-image: url(./assets/images/bg-triangle.svg);
+  background-image: url(public/images/bg-triangle.svg);
 }
 .playground-advanced {
   width: 30rem;
-  background-image: url(./assets/images/bg-pentagon.svg);
+  background-image: url(public/images/bg-pentagon.svg);
   position: relative;
 }
 .playground-advanced .scissors,
